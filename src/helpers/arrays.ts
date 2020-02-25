@@ -95,12 +95,6 @@ export const sortByKey = (key: string) => <T = { [key: string]: any }>(a: T, b: 
 	getByPath(a, key) < getByPath(b, key) ? -1 : getByPath(a, key) > getByPath(b, key) ? 1 : 0;
 
 /**
- * Join an array of strings or JSX elements using a JSX (or string) seperator element.
- */
-export const jsxJoin = (array: any[], seperator: any) =>
-	array.reduce((parts, part) => (parts ? [...parts, seperator, part] : [part]), undefined);
-
-/**
  * Flatten an array.
  */
 export const flatten = <T = any>(array: T[][]) => array.reduce((val, acc) => [...val, ...acc], []);
