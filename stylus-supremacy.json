@@ -1,0 +1,11 @@
+{
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.insertBraces": false,
+  "stylusSupremacy.selectorSeparator": "\n",
+  "stylusSupremacy.sortProperties": "grouped",
+  "stylusSupremacy.alwaysUseImport": true,
+  "stylusSupremacy.alwaysUseNot": true,
+  "stylusSupremacy.alwaysUseExtends": true,
+  "stylusSupremacy.alwaysUseZeroWithoutUnit": true,
+  "stylusSupremacy.reduceMarginAndPaddingValues": true
+}

@@ -1,0 +1,15 @@
+"project: api":
+  - api/**/*
+  - cypress/**/*
+  - cypress.json
+
+"project: app/webapp":
+  - app/**/*
+  - webapp/**/*
+
+"project: firebase":
+  - firebase/**/*
+
+"project: pwa":
+  - pwa/**/*
+  - now.json

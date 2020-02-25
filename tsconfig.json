@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"allowUnreachableCode": false,
+		"declaration": false,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"lib": ["dom", "es2017"],
+		"moduleResolution": "node",
+		"module": "esnext",
+		"target": "es2017",
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitThis": true,
+		"jsx": "react",
+		"jsxFactory": "h",
+		"strictNullChecks": true,
+		"rootDir": "src",
+		"baseUrl": ".",
+		"paths": {
+			"@env": ["src/envs/dev"],
+			"@build-meta": ["src/plugins/build-meta"]
+		}
+	},
+	"include": ["src"]
+}

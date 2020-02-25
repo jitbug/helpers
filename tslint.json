@@ -1,0 +1,18 @@
+{
+	"extends": ["tslint-xo", "tslint-config-prettier"],
+	"rules": {
+		"comment-format": [true, "check-space"],
+		"no-console": true,
+		"no-implicit-dependencies": [true, "dev", ["@env", "@build-meta"]],
+		"no-redundant-jsdoc": [false],
+		"no-this-assignment": [true, { "allow-destructuring": true }],
+		"no-unsafe-any": false,
+		"no-unused": [true, "ignore-imports"],
+		"no-use-before-declare": false,
+		"no-void-expression": false,
+		"react-this-binding-issue": false,
+		"react-unused-props-and-state": false,
+		"typedef": false,
+		"type-literal-delimiter": false
+	}
+}

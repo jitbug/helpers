@@ -1,0 +1,11 @@
+{
+	"appId": "nz.jitbug",
+	"appName": "Jitbug",
+	"bundledWebRuntime": false,
+	"webDir": "www",
+	"plugins": {
+		"SplashScreen": {
+			"launchAutoHide": false
+		}
+	}
+}
