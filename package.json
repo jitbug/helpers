@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Jitbug stencil helpers",
   "author": "Jitbug Ltd",
-  "repository": "jitbug/jitbug-helpers",
+  "repository": "jitbug/stencil-helpers",
   "license": "UNLICENSED",
   "engines": {
     "node": ">= 10"
