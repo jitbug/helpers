@@ -1,11 +1,10 @@
 {
   "name": "@jitbug/stencil-helpers",
-  "private": true,
   "version": "1.0.0",
-  "description": "Jitbug stencil helpers",
+  "description": "Stencil helpers",
   "author": "Jitbug Ltd",
   "repository": "jitbug/stencil-helpers",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "engines": {
     "node": ">= 10"
   },
@@ -21,7 +20,6 @@
     "@capacitor/core": "1.5.0",
     "@ionic/core": "4.11.10",
     "@ionic/pwa-elements": "1.4.2",
-    "@sentry/browser": "5.12.1",
     "moment": "2.24.0",
     "moment-timezone": "0.5.27",
     "nprogress": "0.2.0"
