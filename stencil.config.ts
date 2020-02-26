@@ -10,7 +10,6 @@ export const config: Config = {
 	outputTargets: [
 		{
 			type: 'www',
-			serviceWorker: { swSrc: 'src/sw.js', unregister: false },
 
 			copy: [
 				/**
@@ -35,7 +34,7 @@ export const config: Config = {
 		},
 	],
 	testing: {
-		roots: ['<rootDir>/__mocks__', '<rootDir>/src'],
+		roots: ['<rootDir>/src'],
 		setupFilesAfterEnv: ['<rootDir>/jest-setup-file.js'],
 	},
 };

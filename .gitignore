@@ -1,15 +1,8 @@
 # project-wide gitignore
 .DS_Store
-.vscode/*
-!.vscode/settings.json
-!.vscode/launch.json
 node_modules
 .idea/
 .now
-
-*.env.json
-junit-results
-/webapp/environment.json
 
 .stencil/
 dist/
