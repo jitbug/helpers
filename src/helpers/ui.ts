@@ -5,15 +5,12 @@ import {
 	AlertOptions,
 	loadingController,
 	LoadingOptions,
-	modalController,
-	ModalOptions,
 	popoverController,
 	PopoverOptions,
 	toastController,
 	ToastOptions,
 } from '@ionic/core';
 import nprogress from 'nprogress';
-import { JSX } from '../components';
 import { wait } from './utils';
 
 /**
@@ -58,22 +55,6 @@ export const showLoadingWhile = async <T>(promise: Promise<T>) => {
 
 	return result;
 };
-
-/**
- * Show a modal.
- */
-export const showModal = async <T extends keyof JSX.IntrinsicElements>(options: TypedModalOptions<T>) => {
-	const modal = await modalController.create(options);
-
-	modal.present(); // tslint:disable-line: no-floating-promises
-
-	return modal;
-};
-
-interface TypedModalOptions<T extends keyof JSX.IntrinsicElements> extends ModalOptions {
-	component: T;
-	componentProps?: JSX.IntrinsicElements[T];
-}
 
 /**
  * Show a toast.

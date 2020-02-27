@@ -2,11 +2,9 @@
   "name": "@jitbug/stencil-helpers",
   "version": "1.0.0",
   "description": "Stencil helpers",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "stencil build",
-    "test": "stencil test --next --spec",
+    "build": "tsc",
+    "test": "jest",
     "deploy": "npm test && npm publish"
   },
   "author": "Jitbug Ltd",
@@ -19,16 +17,20 @@
     "@ionic/core": "4.11.10",
     "moment": "2.24.0",
     "moment-timezone": "0.5.27",
-    "nprogress": "0.2.0"
+    "nprogress": "0.2.0",
+    "ts-jest": "^25.2.1"
   },
   "devDependencies": {
-    "@stencil/core": "1.9.0-13",
     "@types/jest": "24.9.1",
     "@types/moment-timezone": "0.5.12",
     "@types/node": "13.7.1",
     "@types/nprogress": "0.2.0",
     "jest": "24.9.0",
-    "jest-cli": "24.9.0"
+    "jest-cli": "24.9.0",
+    "typescript": "^3.4.5"
+  },
+  "peerDependencies": {
+    "typescript": ">=3.x"
   },
   "prettier": {
     "printWidth": 120,
