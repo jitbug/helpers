@@ -4,7 +4,6 @@
 		"allowUnreachableCode": false,
 		"declaration": true,
 		"outDir": "dist",
-		"allowJs": true,
 		"experimentalDecorators": true,
 		"esModuleInterop": true,
 		"lib": ["dom", "es2017"],
