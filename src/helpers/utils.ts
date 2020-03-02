@@ -1,6 +1,8 @@
 import { Moment } from 'moment-timezone';
 import { removeDataUrlPrefix } from './strings';
 
+declare const moment: typeof import('moment-timezone');
+
 /**
  * Wait for a given amount of time.
  *

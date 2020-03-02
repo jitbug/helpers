@@ -9,6 +9,8 @@ import {
 	msToDecimalHours,
 } from './dates';
 
+declare const moment: typeof import('moment-timezone');
+
 describe('Date Helpers', () => {
 	describe('mergeDateAndTime(date, time)', () => {
 		it('should return a moment with the date of "date" and the time of "time"', () => {

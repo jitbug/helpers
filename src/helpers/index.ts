@@ -5,9 +5,3 @@ export * from './strings';
 export * from './time';
 export * from './ui';
 export * from './utils';
-
-declare global {
-	const moment: typeof import('moment-timezone');
-}
-
-export namespace global {}
