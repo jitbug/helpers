@@ -6,11 +6,10 @@
   "types": "dist/helpers/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
-    "deploy": "npm test && npm publish"
+    "test": "jest"
   },
   "author": "Jitbug Ltd",
-  "repository": "jitbug/stencil-helpers",
+  "repository": "jitbug/helpers",
   "license": "MIT",
   "engines": {
     "node": ">= 10"
