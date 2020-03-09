@@ -3,7 +3,7 @@
 		"allowSyntheticDefaultImports": true,
 		"allowUnreachableCode": false,
 		"declaration": true,
-		"outDir": "dist",
+		"outDir": ".",
 		"experimentalDecorators": true,
 		"esModuleInterop": true,
 		"lib": ["dom", "es2017"],

@@ -1,8 +1,12 @@
 # project-wide gitignore
 node_modules
-.idea/
-.now
 
-dist/
-www/
-
+/arrays
+/dates
+/fp
+/strings
+/time
+/ui
+/utils
+/index.d.ts
+/index.js
