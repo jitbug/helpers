@@ -1,12 +1,32 @@
 /**
  * Compose the passed in functions.
  */
-export const compose = (...functions) => data => functions.reduceRight((value, func) => func(value), data);
+export function compose<T1, T2, T3>(f: (x: T2) => T3, g: (x: T1) => T2): (x: T1) => T3;
+export function compose<T1, T2, T3, T4>(f: (x: T3) => T4, g: (x: T2) => T3, h: (x: T1) => T2): (x: T1) => T4;
+export function compose<T1, T2, T3, T4, T5>(
+	f: (x: T4) => T5,
+	g: (x: T3) => T4,
+	h: (x: T2) => T3,
+	k: (x: T1) => T2,
+): (x: T1) => T5;
+export function compose(...functions: any[]) {
+	return (data: any) => functions.reduceRight((value, func) => func(value), data);
+}
 
 /**
  * Create a pipe of the passed in functions.
  */
-export const pipe = (...functions) => data => functions.reduce((value, func) => func(value), data);
+export function pipe<T1, T2, T3>(f: (x: T1) => T2, g: (x: T2) => T3): (x: T1) => T3;
+export function pipe<T1, T2, T3, T4>(f: (x: T1) => T2, g: (x: T2) => T3, h: (x: T3) => T4): (x: T1) => T4;
+export function pipe<T1, T2, T3, T4, T5>(
+	f: (x: T1) => T2,
+	g: (x: T2) => T3,
+	h: (x: T3) => T4,
+	k: (x: T4) => T5,
+): (x: T1) => T5;
+export function pipe(...functions: any[]) {
+	return (data: any) => functions.reduce((value, func) => func(value), data);
+}
 
 /**
  * Create a function that plucks a property out of an object.
