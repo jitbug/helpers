@@ -1,4 +1,4 @@
-import { Time } from './time';
+import { Time } from '../time';
 import {
 	formatAsDayAndMonth,
 	formatAsTimestamp,
@@ -7,7 +7,7 @@ import {
 	mergeDateAndTime,
 	minsToMs,
 	msToDecimalHours,
-} from './dates';
+} from '.';
 
 declare const moment: typeof import('moment-timezone');
 

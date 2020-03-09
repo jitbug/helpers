@@ -11,7 +11,7 @@ import {
 	reduceObjectArrayToObject,
 	removeFromArray,
 	sortByKey,
-} from './arrays';
+} from '.';
 
 describe('Array Helpers', () => {
 	describe('createRange(from, to)', () => {

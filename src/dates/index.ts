@@ -1,6 +1,6 @@
 import { Moment } from 'moment-timezone';
-import { createRange } from './arrays';
-import { Time, TimeLike } from './time';
+import { createRange } from '../arrays';
+import { Time, TimeLike } from '../time';
 
 declare const moment: typeof import('moment-timezone');
 

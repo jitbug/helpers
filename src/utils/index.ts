@@ -1,5 +1,5 @@
 import { Moment } from 'moment-timezone';
-import { removeDataUrlPrefix } from './strings';
+import { removeDataUrlPrefix } from '../strings';
 
 declare const moment: typeof import('moment-timezone');
 

@@ -11,7 +11,7 @@ import {
 	ToastOptions,
 } from '@ionic/core';
 import nprogress from 'nprogress';
-import { wait } from './utils';
+import { wait } from '../utils';
 
 /**
  * Show an action sheet.

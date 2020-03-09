@@ -1,4 +1,4 @@
-import { compose, pipe } from './fp';
+import { compose, pipe } from '.';
 
 const double = (x: number) => x * 2;
 const square = (x: number) => x * x;

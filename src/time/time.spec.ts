@@ -1,4 +1,4 @@
-import { Time } from './time';
+import { Time } from '.';
 
 declare const moment: typeof import('moment-timezone');
 

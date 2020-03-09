@@ -7,7 +7,7 @@ import {
 	toOrdinal,
 	toStringOrEmptyString,
 	toTitleCase,
-} from './strings';
+} from '.';
 
 describe('String Helpers', () => {
 	describe('toStringOrEmptyString(value)', () => {

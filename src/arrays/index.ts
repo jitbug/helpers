@@ -1,4 +1,4 @@
-import { getByPath } from './utils';
+import { getByPath } from '../utils';
 
 /**
  * Create an array for the given range.

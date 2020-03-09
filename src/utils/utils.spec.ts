@@ -1,4 +1,4 @@
-import { base64ImageToDataUrl, clone, getByPath, getRandomInt } from './utils';
+import { base64ImageToDataUrl, clone, getByPath, getRandomInt } from '.';
 
 describe('Utils', () => {
 	describe('getRandomInt(min, max)', () => {
