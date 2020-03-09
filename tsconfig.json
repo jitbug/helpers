@@ -14,7 +14,8 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noImplicitThis": true,
-		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"strict": true,
 		"rootDir": "src",
 		"baseUrl": "."
 	},
