@@ -39,7 +39,8 @@ export const getWorkedHours = (start: Moment, end: Moment, breakMinutes: number)
  *
  * @param key the key name of the date to sort by
  */
-export const sortByDate = <T = any>(key: string) => (a: T, b: T) => a[key].diff(b[key]);
+export const sortByDate = <K extends string>(key: K) => <T extends { [key in K]: Moment }>(a: T, b: T) =>
+	a[key].diff(b[key]);
 
 /**
  * Format a date as a timestamp depending on how long ago it was.
