@@ -19,9 +19,9 @@ export const wait = async (t: number) => new Promise<void>((resolve: () => void)
  * @param delay debounce time in ms
  */
 export const debounce = <T extends (...args: any[]) => any>(fn: T, delay: number) => {
-	let timer;
+	let timer: any;
 
-	return (((...args) => {
+	return (((...args: any[]) => {
 		clearTimeout(timer);
 		timer = setTimeout(() => fn(...args), delay);
 	}) as any) as T;
@@ -35,9 +35,9 @@ export const debounce = <T extends (...args: any[]) => any>(fn: T, delay: number
  * @param skipFn optional function to execute when fn is skipped due to throttle
  */
 export const throttle = <T extends (...args: any[]) => any>(fn: T, delay: number, skipFn?: () => any) => {
-	let lastCallTime: number;
+	let lastCallTime: number | undefined;
 
-	return (((...args) => {
+	return (((...args: any[]) => {
 		if (lastCallTime && lastCallTime + delay > Date.now()) {
 			return skipFn && skipFn();
 		}
