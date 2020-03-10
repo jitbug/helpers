@@ -1,20 +1,9 @@
 /**
- * This file is referenced in `stencil.config.ts` as a testing setup file for
- * Jest. It runs once per test file immediately before executing the test.
+ * This file is referenced as a testing setup file for Jest. It runs once per test file immediately before executing the test.
  *
  * @see https://medium.com/@justintulk/how-to-mock-an-external-library-in-jest-140ac7b210c2
  * @see https://jestjs.io/docs/en/configuration.html#setupfiles-array
  */
-
-/**
- * URLSearchParams is not globally available in Node verions less than v10.
- *
- * @todo remove once everything runs on node 10
- */
-if (!('URLSearchParams' in global)) {
-	const { URLSearchParams } = require('url');
-	global.URLSearchParams = URLSearchParams;
-}
 
 /**
  * Globally provide momentjs.

@@ -1,5 +1,5 @@
 /**
- * This extends the jest namespace to add custom matchers (implemented in `helpers/testing.ts`) via namespace declaration merging.
+ * This extends the jest namespace to add custom matchers via namespace declaration merging.
  *
  * @see https://www.typescriptlang.org/docs/handbook/declaration-merging.html
  * @see https://github.com/kentcdodds/react-testing-library/issues/36#issuecomment-411434800
