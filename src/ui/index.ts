@@ -133,19 +133,6 @@ export const showConfirmationAlert = async (question?: string, options?: AlertOp
 };
 
 /**
- * Execute a request after a confirmation alert has been confirmed.
- */
-/* export const requestIfConfirmed = async <T>(message: string, request: () => Promise<T>) => {
-	const confirmed = await showConfirmationAlert(message);
-
-	if (!confirmed) {
-		return;
-	}
-
-	return showLoadingWhile(request().catch(handleError));
-}; */
-
-/**
  * Check whether the viewport is at least of specified size.
  *
  * The size breakpoints match the ones from Ionic (except 'xs' cause `0` is useless):
