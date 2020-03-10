@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "test": "jest",
-    "clean": "rm -r arrays dates fp strings time ui utils index.d.ts index.js",
+    "clean": "rm -r arrays dates fp ionic strings time utils index.d.ts index.js",
     "release": "npm test && npm run clean && npm run build && standard-version --infile=changelog.md"
   },
   "author": "Jitbug Ltd",

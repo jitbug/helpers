@@ -4,9 +4,9 @@ node_modules
 /arrays
 /dates
 /fp
+/ionic
 /strings
 /time
-/ui
 /utils
 /index.d.ts
 /index.js
