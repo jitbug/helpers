@@ -83,7 +83,7 @@ interface TypedModalOptions<T extends keyof JSX.IntrinsicElements> extends Omit<
  */
 export const showToast = async (message?: string, options: ToastOptions = {}) => {
 	// dismiss all existing toasts
-	document.querySelectorAll('ion-toast').forEach(existingToast => existingToast.dismiss());
+	await Promise.all(Array.from(document.querySelectorAll('ion-toast')).map(existingToast => existingToast.dismiss()));
 
 	options.buttons = [...(options.buttons || []), { icon: 'close' }];
 
