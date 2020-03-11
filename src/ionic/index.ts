@@ -5,11 +5,14 @@ import {
 	AlertOptions,
 	loadingController,
 	LoadingOptions,
+	modalController,
+	ModalOptions,
 	popoverController,
 	PopoverOptions,
 	toastController,
 	ToastOptions,
 } from '@ionic/core';
+import { JSX } from '@stencil/core';
 import nprogress from 'nprogress';
 import { wait } from '../utils';
 
@@ -55,6 +58,25 @@ export const showLoadingWhile = async <T>(promise: Promise<T>) => {
 
 	return result;
 };
+
+/**
+ * Show a modal.
+ *
+ * Has to be a function because otherwise `keyof JSX.IntrinsicElements` gets expanded into a union type of string literals.
+ * @see https://github.com/microsoft/TypeScript/issues/27171#issuecomment-533148919
+ */
+export async function showModal<T extends keyof JSX.IntrinsicElements>(options: TypedModalOptions<T>) {
+	const modal = await modalController.create(options);
+
+	modal.present(); // tslint:disable-line: no-floating-promises
+
+	return modal;
+}
+
+interface TypedModalOptions<T extends keyof JSX.IntrinsicElements> extends Omit<ModalOptions, 'component'> {
+	component: T;
+	componentProps?: JSX.IntrinsicElements[T];
+}
 
 /**
  * Show a toast.

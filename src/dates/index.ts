@@ -7,8 +7,8 @@ declare const moment: typeof import('moment-timezone');
 /**
  * Merges the time of a date into another date.
  *
- * @param date The date to merge into
- * @param time The date who's time to merge into date
+ * @param date The date to merge the time into
+ * @param time The time to merge into the date
  */
 export const mergeDateAndTime = (date: Moment | string, time: Time) =>
 	moment(date)
