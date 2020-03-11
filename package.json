@@ -2,6 +2,7 @@
   "name": "@jitbug/helpers",
   "version": "1.0.0",
   "description": "Helpers for Jitbug's Ionic + Stencil PWAs.",
+  "type": "module",
   "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
