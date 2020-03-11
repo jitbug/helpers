@@ -65,7 +65,7 @@ describe('Utils', () => {
 				nested: {
 					foobar: 42,
 				},
-				nil: null, // tslint:disable-line: no-null-keyword
+				nil: null,
 				nope: undefined,
 			};
 

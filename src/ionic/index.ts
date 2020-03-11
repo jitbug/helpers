@@ -22,7 +22,7 @@ import { wait } from '../utils';
 export const showActionSheet = async (options: ActionSheetOptions) => {
 	const actionSheet = await actionSheetController.create(options);
 
-	actionSheet.present(); // tslint:disable-line: no-floating-promises
+	actionSheet.present();
 
 	return actionSheet;
 };
@@ -33,7 +33,7 @@ export const showActionSheet = async (options: ActionSheetOptions) => {
 export const showAlert = async (message?: string, options?: AlertOptions) => {
 	const alert = await alertController.create({ message, header: 'Error', buttons: ['Dismiss'], ...options });
 
-	alert.present(); // tslint:disable-line: no-floating-promises
+	alert.present();
 
 	return alert;
 };
@@ -44,7 +44,7 @@ export const showAlert = async (message?: string, options?: AlertOptions) => {
 export const showLoading = async (options: LoadingOptions = {}) => {
 	const loading = await loadingController.create(options);
 
-	loading.present(); // tslint:disable-line: no-floating-promises
+	loading.present();
 
 	return loading;
 };
@@ -54,7 +54,7 @@ export const showLoading = async (options: LoadingOptions = {}) => {
  */
 export const showLoadingWhile = async <T>(promise: Promise<T>) => {
 	const [result, loading] = await Promise.all([promise, showLoading()]);
-	loading.dismiss(); // tslint:disable-line: no-floating-promises
+	loading.dismiss();
 
 	return result;
 };
@@ -68,7 +68,7 @@ export const showLoadingWhile = async <T>(promise: Promise<T>) => {
 export async function showModal<T extends keyof JSX.IntrinsicElements>(options: TypedModalOptions<T>) {
 	const modal = await modalController.create(options);
 
-	modal.present(); // tslint:disable-line: no-floating-promises
+	modal.present();
 
 	return modal;
 }
@@ -95,7 +95,7 @@ export const showToast = async (message?: string, options: ToastOptions = {}) =>
 		...options,
 	});
 
-	toast.present(); // tslint:disable-line: no-floating-promises
+	toast.present();
 
 	return toast;
 };
@@ -106,7 +106,7 @@ export const showToast = async (message?: string, options: ToastOptions = {}) =>
 export const showPopover = async (options: PopoverOptions) => {
 	const popover = await popoverController.create(options);
 
-	popover.present(); // tslint:disable-line: no-floating-promises
+	popover.present();
 
 	return popover;
 };
@@ -183,9 +183,8 @@ const breakpoints = {
 /**
  * Go to a route.
  */
-// tslint:disable-next-line: no-unnecessary-type-annotation
 export const goToRoute: typeof HTMLIonRouterElement.prototype.push = async (...args) => {
-	let router: HTMLIonRouterElement | null = null; // tslint:disable-line: no-null-keyword
+	let router: HTMLIonRouterElement | null = null;
 
 	while (!router) {
 		router = document.querySelector('ion-router');

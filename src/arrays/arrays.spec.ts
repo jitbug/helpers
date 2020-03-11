@@ -1,5 +1,3 @@
-// tslint:disable: no-null-keyword
-
 import {
 	createRange,
 	flatten,

@@ -30,7 +30,7 @@ describe('String Helpers', () => {
 
 		it('should return an empty string', () => {
 			expect(toStringOrEmptyString(undefined)).toBe('');
-			expect(toStringOrEmptyString(null)).toBe(''); // tslint:disable-line: no-null-keyword
+			expect(toStringOrEmptyString(null)).toBe('');
 		});
 	});
 

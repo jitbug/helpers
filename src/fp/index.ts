@@ -49,12 +49,12 @@ export const isNot = <T, K extends keyof T>(key: K, value: T[K]) => (obj: T) => 
  * @todo get rid of this once Typescript supports it
  * @see https://github.com/Microsoft/TypeScript/pull/29955
  */
-export const Bool = <T>(value: T): value is Exclude<T, false | null | undefined | '' | 0> => Boolean(value); // tslint:disable-line: no-unnecessary-callback-wrapper variable-name
+export const Bool = <T>(value: T): value is Exclude<T, false | null | undefined | '' | 0> => Boolean(value);
 
 /**
  * Do nothing.
  */
-export const noop = () => {}; // tslint:disable-line: no-empty
+export const noop = () => {};
 
 export const isEnabled = <T extends { enabled?: boolean }>({ enabled }: T) => Boolean(enabled);
 export const isDisabled = <T extends { enabled?: boolean }>({ enabled }: T) => !enabled;
