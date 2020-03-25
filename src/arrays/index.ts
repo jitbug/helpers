@@ -60,7 +60,7 @@ const getSibling = <T>(array: (T | undefined)[], el: T | undefined, n: number) =
 export const makeArrayUnique = <T>(array: T[]) => Array.from(new Set(array));
 
 /**
- * Get the count of elements of an array that pass the filter, and return either the count or the limit (whatever is smaller) as a string.
+ * Get the count of elements of an array that pass the filter, and return either the count or the limit (whatever is smaller) as a string. The default limit is 99.
  *
  * If no limit should be applied, pass `0` as the limit.
  */
@@ -97,4 +97,4 @@ export const sortByKey = (key: string) => <T = { [key: string]: any }>(a: T, b: 
 /**
  * Flatten an array.
  */
-export const flatten = <T = any>(array: T[][]) => array.reduce((val, acc) => [...val, ...acc], []);
+export const flatten = <T = any>(array: T[][]) => array.reduce((acc, val) => [...acc, ...val], []);
