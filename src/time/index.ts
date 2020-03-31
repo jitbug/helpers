@@ -59,8 +59,8 @@ export class Time {
 	/**
 	 * Add a number of minutes and return a new Time instance with the new value.
 	 *
-	 * This is circular, e. g. when removing 5 minutes from 00:00, the resulting
-	 * time will be 23:55, and when adding 5 mins to 23:55, it will be 00:00.
+	 * This is circular, e. g. when removing 10 minutes from 00:05, the resulting
+	 * time will be 23:55, and when adding 10 mins to 23:55, it will be 00:05.
 	 */
 	add(mins: number) {
 		let newValue = (this.value + mins) % 1440;

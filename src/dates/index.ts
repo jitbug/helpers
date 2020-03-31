@@ -10,10 +10,16 @@ declare const moment: typeof import('moment-timezone');
  * @param date The date to merge the time into
  * @param time The time to merge into the date
  */
-export const mergeDateAndTime = (date: Moment | string, time: Time) =>
-	moment(date)
+export const mergeDateAndTime = (date: Moment | string, time: Time) => {
+	const [hours, minutes] = time
+		.toString()
+		.split(':')
+		.map(Number);
+
+	return moment(date)
 		.startOf('day')
-		.add(time.valueOf(), 'minutes');
+		.set({ hours, minutes });
+};
 
 /**
  * Convert minutes to milliseconds.

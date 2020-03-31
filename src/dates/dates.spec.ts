@@ -42,8 +42,14 @@ describe('Date Helpers', () => {
 			];
 
 			for (const el of data) {
-				expect(mergeDateAndTime(el.date, new Time(el.time)).format()).toBe(el.expected.format());
+				expect(mergeDateAndTime(el.date, new Time(el.time))).toBeSameMoment(el.expected);
 			}
+		});
+
+		it('should work across DST changes', () => {
+			const date = moment('2020-04-05T00:00:00');
+
+			expect(mergeDateAndTime(date, new Time('12:34'))).toBeSameMoment(moment('2020-04-05T12:34:00'));
 		});
 	});
 
