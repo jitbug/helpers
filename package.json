@@ -17,6 +17,17 @@
   "engines": {
     "node": ">= 10"
   },
+  "files": [
+    "/arrays",
+    "/dates",
+    "/fp",
+    "/ionic",
+    "/strings",
+    "/time",
+    "/utils",
+    "/index.d.ts",
+    "/index.js"
+  ],
   "devDependencies": {
     "@ionic/core": "^5.0.7",
     "@types/jest": "^25.1.4",
