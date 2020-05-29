@@ -170,7 +170,7 @@ export const showConfirmationAlert = async (question?: string, options?: AlertOp
  * @see https://ionicframework.com/docs/layout/grid#default-breakpoints
  */
 export const viewportIsMin = (size: keyof typeof breakpoints) =>
-	matchMedia(`(min-width: ${breakpoints[size]}px`).matches;
+	matchMedia(`(min-width: ${breakpoints[size]}px)`).matches;
 
 const breakpoints = {
 	xs: 375,
