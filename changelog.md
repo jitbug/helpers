@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/jitbug/helpers/compare/v1.0.3...v2.0.0) (2020-06-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dates:** Instead of expecting that `moment` is defined globally, there's a new method `setMomentReference` that needs to be used to provide a reference to the `moment` function/object.
+
+This also updates the `moment` and `moment-timezone` dependencies.
+
+### Features
+
+* **dates:** no more global moment ([08018f8](https://github.com/jitbug/helpers/commit/08018f897a03cf2782803e77e84f95e49ab66757))
+* **time:** subtract method ([f59b7f1](https://github.com/jitbug/helpers/commit/f59b7f1b761c68515dd5dd9f8cdfee3fc43d9998))
+
+
+### Bug Fixes
+
+* **arrays:** `removeFromArray` always returns a copy ([4acb473](https://github.com/jitbug/helpers/commit/4acb47352a93e5cdd7f7d265c2571add9c6fdf77))
+
 ### [1.0.3](https://github.com/jitbug/helpers/compare/v1.0.2...v1.0.3) (2020-05-29)
 
 
