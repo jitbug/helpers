@@ -69,7 +69,7 @@ export const isVisible = <T extends { visible?: boolean }>({ visible }: T) => Bo
 export const isInvisible = <T extends { visible?: boolean }>({ visible }: T) => !visible;
 
 /**
- * Return the value if it's set, or the default value otherwise
+ * Return the value if it's set, or the default value otherwise.
  */
 export const getValueOrDefault = <T>(value: T | undefined, defaultValue: T) =>
 	value === undefined || value === null ? defaultValue : value;

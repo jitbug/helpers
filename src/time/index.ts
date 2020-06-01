@@ -6,14 +6,11 @@ import { Moment } from 'moment-timezone';
 export type TimeLike = number | string | Moment | Time;
 
 /**
- * A time represents the hours and minutes of a day and can therefore be
- * somewhere in between `00:00` and `23:59`.
+ * A time represents the hours and minutes of a day and can therefore be somewhere in between `00:00` and `23:59`.
  *
- * The time's value is immutable, thus all methods that modify the time return a
- * new Time instance.
+ * The time's value is immutable, i. e. all methods that modify the time return a new `Time` instance.
  *
- * Internally, the time's value is stored as a number of minutes. There's no
- * implementation for seconds as it's not required in the context of this app.
+ * Internally, the time's value is stored as a number of minutes. There's no implementation for seconds at this point.
  */
 export class Time {
 	private readonly value: number;
@@ -57,7 +54,7 @@ export class Time {
 	}
 
 	/**
-	 * Add a number of minutes and return a new Time instance with the new value.
+	 * Add the number of minutes and return a new `Time` instance with the new value.
 	 *
 	 * This is circular, e. g. when removing 10 minutes from 00:05, the resulting
 	 * time will be 23:55, and when adding 10 mins to 23:55, it will be 00:05.

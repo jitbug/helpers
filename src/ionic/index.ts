@@ -132,7 +132,7 @@ export const showProgressWhile = async <T>(promise: Promise<T>) => {
 };
 
 /**
- * Shows a confirmation alert that returns a promise which will resolve to `true` if the user presses "Yes" and `false` if the user presses "No". The message should be a question.
+ * Show a confirmation alert that returns a promise which will resolve to `true` if the user presses "Yes" and `false` if the user presses "No". The message should be a question.
  */
 export const showConfirmationAlert = async (question?: string, options?: AlertOptions) => {
 	return new Promise<boolean>(async (resolve) => {
@@ -181,7 +181,7 @@ const breakpoints = {
 };
 
 /**
- * Go to a route.
+ * Go to a route programmatically.
  */
 export const goToRoute: typeof HTMLIonRouterElement.prototype.push = async (...args) => {
 	let router: HTMLIonRouterElement | null = null;

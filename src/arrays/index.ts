@@ -1,7 +1,7 @@
 import { getByPath } from '../utils';
 
 /**
- * Create an array for the given range.
+ * Create a numeric array for the given range.
  *
  * @example
  * // creates an array with n elements 0...(n - 1)
@@ -21,15 +21,15 @@ export const createRange = (s: number, e = 0) =>
 	Array.from(new Array(e ? e - s + 1 : s)).map((_, i) => (e ? s + i : i));
 
 /**
- * Calculate the sum of an array.
+ * Calculate the sum of a numeric array.
  */
 export const getArraySum = (array: number[]) => array.reduce((acc, val) => acc + val, 0);
 
 /**
- * Remove an index from an array (returns a new array).
+ * Remove an item from an array (returns a new array).
  */
-export const removeFromArray = <T>(array: T[], el: T) => {
-	const i = array.indexOf(el);
+export const removeFromArray = <T>(array: T[], item: T) => {
+	const i = array.indexOf(item);
 
 	return i === -1 ? array.slice() : [...array.slice(0, i), ...array.slice(i + 1)];
 };
@@ -42,17 +42,17 @@ export const getLastElement = <T>(array: T[]) => array[array.length - 1];
 /**
  * Get the previous sibling of an array element.
  */
-export const getPrevSibling = <T>(array: (T | undefined)[], el: T | undefined) => getSibling(array, el, -1);
+export const getPrevSibling = <T>(array: (T | undefined)[], item: T | undefined) => getSibling(array, item, -1);
 
 /**
  * Get the next sibling of an array element.
  */
-export const getNextSibling = <T>(array: (T | undefined)[], el: T | undefined) => getSibling(array, el, +1);
+export const getNextSibling = <T>(array: (T | undefined)[], item: T | undefined) => getSibling(array, item, +1);
 
 /**
  * Get the nth sibling of an array element.
  */
-const getSibling = <T>(array: (T | undefined)[], el: T | undefined, n: number) => array[array.indexOf(el) + n];
+const getSibling = <T>(array: (T | undefined)[], item: T | undefined, n: number) => array[array.indexOf(item) + n];
 
 /**
  * Use a Set to get only the unique values of an array.

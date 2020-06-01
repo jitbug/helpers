@@ -46,6 +46,9 @@ export const throttle = <T extends (...args: any[]) => any>(fn: T, delay: number
 	}) as any) as T;
 };
 
+/**
+ * Get a random integer in the given range.
+ */
 export const getRandomInt = (min: number, max: number) => Math.round(Math.random() * (max - min)) + min;
 
 /**
