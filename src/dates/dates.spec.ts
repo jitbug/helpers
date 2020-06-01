@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import {
 	formatAsDayAndMonth,
 	formatAsTimestamp,
@@ -6,10 +7,11 @@ import {
 	mergeDateAndTime,
 	minsToMs,
 	msToDecimalHours,
+	setMomentReference,
 } from '.';
 import { Time } from '../time';
 
-declare const moment: typeof import('moment-timezone');
+setMomentReference(moment);
 
 describe('Date Helpers', () => {
 	describe('mergeDateAndTime(date, time)', () => {

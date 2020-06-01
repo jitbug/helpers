@@ -2,7 +2,18 @@ import { Moment } from 'moment-timezone';
 import { createRange } from '../arrays';
 import { Time, TimeLike } from '../time';
 
-declare const moment: typeof import('moment-timezone');
+type _moment = typeof import('moment') | typeof import('moment-timezone');
+
+let moment: _moment;
+
+/**
+ * Set a reference for `moment` to be used by some of the date helpers, so that this library doesn't need to ship its own `moment.js` bundle (for bundle size reasons).
+ *
+ * This needs to be done before using any of the `moment.js` related date helpers. A good place to do this is in an app initialization script (e. g. for Stencil apps, that would be the `globalScript`).
+ */
+export const setMomentReference = (momentRef: _moment) => {
+	moment = momentRef;
+};
 
 /**
  * Merges the time of a date into another date.
