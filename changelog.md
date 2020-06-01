@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/jitbug/helpers/compare/v2.0.0...v2.0.1) (2020-06-01)
+
+
+### Bug Fixes
+
+* **utils:** jwt parser util is for jitbug only ([ed47594](https://github.com/jitbug/helpers/commit/ed47594f0f5cd3cd717c228a333ff109db7158bd))
+* **utils:** stop depending on moment ([8066265](https://github.com/jitbug/helpers/commit/80662651795a8480ac2ea4a70c02168236ba5696))
+
 ## [2.0.0](https://github.com/jitbug/helpers/compare/v1.0.3...v2.0.0) (2020-06-01)
 
 
