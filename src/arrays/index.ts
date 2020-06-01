@@ -31,7 +31,7 @@ export const getArraySum = (array: number[]) => array.reduce((acc, val) => acc +
 export const removeFromArray = <T>(array: T[], el: T) => {
 	const i = array.indexOf(el);
 
-	return i === -1 ? array : [...array.slice(0, i), ...array.slice(i + 1)];
+	return i === -1 ? array.slice() : [...array.slice(0, i), ...array.slice(i + 1)];
 };
 
 /**
