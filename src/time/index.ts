@@ -91,6 +91,6 @@ export class Time {
 		const mins = this.value % 60;
 		const hours = (this.value - mins) / 60;
 
-		return [hours, mins].map(val => String(val).padStart(2, '0')).join(':');
+		return [hours, mins].map((val) => String(val).padStart(2, '0')).join(':');
 	}
 }

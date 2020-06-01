@@ -83,7 +83,7 @@ interface TypedModalOptions<T extends keyof JSX.IntrinsicElements> extends Omit<
  */
 export const showToast = async (message?: string, options: ToastOptions = {}) => {
 	// dismiss all existing toasts
-	await Promise.all(Array.from(document.querySelectorAll('ion-toast')).map(existingToast => existingToast.dismiss()));
+	await Promise.all(Array.from(document.querySelectorAll('ion-toast')).map((existingToast) => existingToast.dismiss()));
 
 	options.buttons = [...(options.buttons || []), { icon: 'close' }];
 
@@ -135,7 +135,7 @@ export const showProgressWhile = async <T>(promise: Promise<T>) => {
  * Shows a confirmation alert that returns a promise which will resolve to `true` if the user presses "Yes" and `false` if the user presses "No". The message should be a question.
  */
 export const showConfirmationAlert = async (question?: string, options?: AlertOptions) => {
-	return new Promise<boolean>(async resolve => {
+	return new Promise<boolean>(async (resolve) => {
 		await showAlert(question, {
 			header: 'Please confirm',
 			buttons: [

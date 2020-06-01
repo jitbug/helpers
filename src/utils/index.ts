@@ -107,14 +107,7 @@ export const downloadFile = (data: string, mimeType: 'text/csv', fileName: strin
  * Parse a JWT and return its payload.
  */
 export const parseJsonWebToken = (jwt: string): TokenPayload => {
-	const payload = JSON.parse(
-		window.atob(
-			jwt
-				.split('.')[1]
-				.replace(/-/g, '+')
-				.replace(/_/g, '/'),
-		),
-	);
+	const payload = JSON.parse(window.atob(jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
 
 	return { expires: moment(payload.exp * 1000), uid: JSON.parse(payload.uid) };
 };
@@ -235,7 +228,7 @@ interface ReadFileOptions {
  * Generate a v4 compliant uuid.
  */
 export const uuid = () =>
-	'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+	'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
 		const r = (Math.random() * 16) | 0;
 		const v = c === 'x' ? r : (r & 0x3) | 0x8;
 		return v.toString(16);

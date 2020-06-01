@@ -81,12 +81,7 @@ describe('Time', () => {
 			expect(time.toString()).toBe('09:00');
 			expect(time.add(-60).toString()).toBe('08:00');
 
-			expect(
-				time
-					.add(60)
-					.add(60)
-					.toString(),
-			).toBe('11:00');
+			expect(time.add(60).add(60).toString()).toBe('11:00');
 		});
 
 		it('should cross min correctly', () => {

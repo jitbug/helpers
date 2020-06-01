@@ -12,7 +12,7 @@ export const toStringOrEmptyString = (value: any) =>
 export const toTitleCase = (str: string) =>
 	str
 		.split(' ')
-		.map(word => (word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : ''))
+		.map((word) => (word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : ''))
 		.join(' ');
 
 /**
@@ -27,7 +27,7 @@ export const pascalToCamelCase = (str: string) =>
 export const getInitials = (str: string) =>
 	str
 		.split(' ')
-		.map(word => (word ? word[0].toUpperCase() : ''))
+		.map((word) => (word ? word[0].toUpperCase() : ''))
 		.join('');
 
 /**

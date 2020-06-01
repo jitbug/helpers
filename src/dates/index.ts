@@ -22,14 +22,9 @@ export const setMomentReference = (momentRef: _moment) => {
  * @param time The time to merge into the date
  */
 export const mergeDateAndTime = (date: Moment | string, time: Time) => {
-	const [hours, minutes] = time
-		.toString()
-		.split(':')
-		.map(Number);
+	const [hours, minutes] = time.toString().split(':').map(Number);
 
-	return moment(date)
-		.startOf('day')
-		.set({ hours, minutes });
+	return moment(date).startOf('day').set({ hours, minutes });
 };
 
 /**
@@ -120,30 +115,22 @@ export const validateShiftDuration = (start: TimeLike, end: TimeLike, minDuratio
  */
 export const getDatesOfNextWeeks = (startOfCurrentWeek: Moment, n = 2) =>
 	createRange(n)
-		.map(weekIndex => moment(startOfCurrentWeek).add(weekIndex, 'weeks'))
-		.map(currentWeekDate => createRange(5).map(dayIndex => moment(currentWeekDate).add(dayIndex, 'days')))
+		.map((weekIndex) => moment(startOfCurrentWeek).add(weekIndex, 'weeks'))
+		.map((currentWeekDate) => createRange(5).map((dayIndex) => moment(currentWeekDate).add(dayIndex, 'days')))
 		.reduce((allDates, weekDates) => [...allDates, ...weekDates], []);
 
 /**
  * Get the start and end dates of a calendar month, which is the start date of the week that includes the first day of the month, and the end date of the week that includes the last day of the month.
  */
 export const getCalendarMonthBoundaries = (month: Moment, weekStartsOnSunday = false) => {
-	const start = moment(month)
-		.startOf('month')
-		.startOf('isoWeek');
-	const end = moment(month)
-		.endOf('month')
-		.endOf('isoWeek');
+	const start = moment(month).startOf('month').startOf('isoWeek');
+	const end = moment(month).endOf('month').endOf('isoWeek');
 
 	if (weekStartsOnSunday) {
 		start.subtract(1, 'day');
 		end.subtract(1, 'day');
 
-		if (
-			moment(start)
-				.add(1, 'week')
-				.isSame(moment(month).startOf('month'), 'day')
-		) {
+		if (moment(start).add(1, 'week').isSame(moment(month).startOf('month'), 'day')) {
 			start.add(1, 'week');
 		}
 

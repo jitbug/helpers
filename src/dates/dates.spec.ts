@@ -34,12 +34,8 @@ describe('Date Helpers', () => {
 				},
 				{
 					date: moment().startOf('day'),
-					time: moment()
-						.startOf('day')
-						.add(10, 'hours'),
-					expected: moment()
-						.startOf('day')
-						.add(10, 'hours'),
+					time: moment().startOf('day').add(10, 'hours'),
+					expected: moment().startOf('day').add(10, 'hours'),
 				},
 			];
 
