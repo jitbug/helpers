@@ -72,6 +72,13 @@ export class Time {
 		return new Time(newValue);
 	}
 
+	/**
+	 * Same as `add` but subtracts the number of minutes.
+	 */
+	subtract(mins: number) {
+		return this.add(-mins);
+	}
+
 	valueOf() {
 		return this.value;
 	}
