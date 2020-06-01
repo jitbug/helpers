@@ -1,6 +1,5 @@
+import moment from 'moment-timezone';
 import { Time } from '.';
-
-declare const moment: typeof import('moment-timezone');
 
 describe('Time', () => {
 	describe('toString()', () => {

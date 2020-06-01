@@ -6,13 +6,6 @@
  */
 
 /**
- * Globally provide momentjs.
- */
-const moment = require('moment-timezone');
-global.moment = moment;
-global.moment.tz.setDefault('Pacific/Auckland');
-
-/**
  * Add Custom matchers.
  */
 expect.extend({
