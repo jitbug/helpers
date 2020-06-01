@@ -115,7 +115,6 @@ The class implements `toValue`, `toJSON` and `toString` for easier serialization
 * `getByPath(object, path)`: Get the value at the path of an object.
 * `clone(object)`: Make a deep clone of an object.
 * `downloadFile(data, mime, name)`: Download a file by opening it via a data url in a new window.
-* `parseJsonWebToken(jwt)`: Parse a JWT and return its payload.
 * `raf(options)`: Run a callback on the queried element within the parent. This uses `requestAnimationFrame` to make sure of the element's existence 
 * `stopPropagation(event)`: Handler to stop event propagation.
 * `readFile(file)`: Read a file using a `FileReader` and return its data as a base64 encoded string.
