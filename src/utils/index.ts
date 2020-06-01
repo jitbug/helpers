@@ -1,7 +1,4 @@
-import { Moment } from 'moment-timezone';
 import { removeDataUrlPrefix } from '../strings';
-
-declare const moment: typeof import('moment-timezone');
 
 /**
  * Wait for a given amount of time.
@@ -91,10 +88,9 @@ export const downloadFile = (data: string, mimeType: 'text/csv', fileName: strin
 		'text/csv': '.csv',
 	};
 
-	const fullName = [
-		addTimestamp ? [fileName, moment().format('YYYY-MM-DD-HHmmss')].join('_') : fileName,
-		fileExtensions[mimeType],
-	].join('.');
+	const timestamp = new Date().toISOString().slice(0, 19).replace('T', '-').replace(/:/g, '');
+
+	const fullName = [addTimestamp ? [fileName, timestamp].join('_') : fileName, fileExtensions[mimeType]].join('.');
 
 	const link = document.createElement('a');
 
@@ -112,11 +108,17 @@ export const downloadFile = (data: string, mimeType: 'text/csv', fileName: strin
 export const parseJsonWebToken = (jwt: string): TokenPayload => {
 	const payload = JSON.parse(window.atob(jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
 
-	return { expires: moment(payload.exp * 1000), uid: JSON.parse(payload.uid) };
+	return { expires: payload.exp * 1000, uid: JSON.parse(payload.uid) };
 };
 
 export interface TokenPayload {
-	expires: Moment;
+	/**
+	 * Expiry date in ms since Unix Epoch.
+	 */
+	expires: number;
+	/**
+	 * User id that the token belongs to.
+	 */
 	uid: string;
 }
 
