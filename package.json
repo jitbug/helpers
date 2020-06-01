@@ -6,6 +6,7 @@
   "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "start": "npm run build -- --watch",
     "build": "tsc --project tsconfig.build.json",
     "test": "jest",
     "clean": "rm -r arrays dates fp ionic strings time utils index.d.ts index.js",
@@ -57,6 +58,16 @@
     "tabWidth": 2,
     "useTabs": true,
     "trailingComma": "all",
-    "bracketSpacing": true
+    "bracketSpacing": true,
+    "overrides": [
+      {
+        "files": [
+          "package.json"
+        ],
+        "options": {
+          "useTabs": false
+        }
+      }
+    ]
   }
 }
