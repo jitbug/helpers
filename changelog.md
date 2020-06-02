@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/jitbug/helpers/compare/v2.0.1...v2.1.0) (2020-06-02)
+
+
+### Features
+
+* **utils:** validate jwt ([11902f8](https://github.com/jitbug/helpers/commit/11902f854e43bea4c5f2bf2d1aa0969a2d106928))
+
 ### [2.0.1](https://github.com/jitbug/helpers/compare/v2.0.0...v2.0.1) (2020-06-01)
 
 
