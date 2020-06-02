@@ -105,10 +105,16 @@ export const downloadFile = (data: string, mimeType: 'text/csv', fileName: strin
 /**
  * Parse a Jitbug JWT and return its expiry and user id from the payload.
  */
-export const parseJitbugJsonWebToken = (jwt: string): TokenPayload => {
-	const payload = JSON.parse(window.atob(jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+export const parseJitbugJsonWebToken = (jwt: string): TokenPayload | void => {
+	const [header, payload, signature] = jwt.split('.');
 
-	return { expires: payload.exp * 1000, uid: JSON.parse(payload.uid) };
+	if (!header || !payload || !signature) {
+		return;
+	}
+
+	const payloadContent = JSON.parse(window.atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+
+	return { expires: payloadContent.exp * 1000, uid: JSON.parse(payloadContent.uid) };
 };
 
 export interface TokenPayload {
