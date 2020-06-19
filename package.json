@@ -10,7 +10,7 @@
     "build": "tsc --project tsconfig.build.json",
     "test": "jest",
     "clean": "rm -rf arrays dates fp ionic strings time utils index.d.ts index.js",
-    "release": "npm test && npm run clean && npm run build && standard-version --infile=changelog.md"
+    "release": "npm test && npm run clean && npm run build && standard-version --infile=changelog.md && echo 👆 that without \\`npm publish\\`"
   },
   "author": "Jitbug Ltd",
   "repository": "jitbug/helpers",
