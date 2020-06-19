@@ -1,6 +1,34 @@
 import { removeDataUrlPrefix } from '../strings';
 
 /**
+ * Return an object that can hold a reference to an element and exposes a setter for that reference.
+ *
+ * @example
+ * export class MyComp {
+ *   div = useRef();
+ *
+ *   componentDidLoad() {
+ *     console.log(this.div.ref);
+ *   }
+ *
+ *   render() {
+ *     return <div ref={this.div.setRef} />;
+ *   }
+ * }
+ */
+export const useRef = <T extends HTMLElement = HTMLElement>() => {
+	const ref: {
+		ref: T | undefined;
+		setRef(el?: T): void;
+	} = {
+		ref: undefined,
+		setRef: (el) => (ref.ref = el),
+	};
+
+	return ref;
+};
+
+/**
  * Wait for a given amount of time.
  *
  * @param t time in ms
