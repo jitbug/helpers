@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/jitbug/helpers/compare/v2.1.0...v2.2.0) (2020-06-19)
+
+
+### Features
+
+* **utils:** add useRef helper ([fa05251](https://github.com/jitbug/helpers/commit/fa052513080f10c5400891f81d2d06b17a0954e4))
+
 ## [2.1.0](https://github.com/jitbug/helpers/compare/v2.0.1...v2.1.0) (2020-06-02)
 
 
