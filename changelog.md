@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/jitbug/helpers/compare/v2.2.0...v2.3.0) (2020-07-22)
+
+
+### Features
+
+* add `convertDataUrlToBlob` util ([4551a4d](https://github.com/jitbug/helpers/commit/4551a4dbd60dfe52662ab949ffba31c5421c1c59))
+
 ## [2.2.0](https://github.com/jitbug/helpers/compare/v2.1.0...v2.2.0) (2020-06-19)
 
 
