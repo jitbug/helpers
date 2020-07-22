@@ -119,6 +119,7 @@ The class implements `toValue`, `toJSON` and `toString` for easier serialization
 * `stopPropagation(event)`: Handler to stop event propagation.
 * `readFile(file)`: Read a file using a `FileReader` and return its data as a base64 encoded string.
 * `uuid()`: Generate a v4 compliant uuid.
+* `convertDataUrlToBlob(data)`: Convert the given data url into a blob.
 
 ## Publishing
 

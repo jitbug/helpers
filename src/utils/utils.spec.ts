@@ -1,4 +1,4 @@
-import { base64ImageToDataUrl, clone, getByPath, getRandomInt } from '.';
+import { base64ImageToDataUrl, clone, convertDataUrlToBlob, getByPath, getRandomInt } from '.';
 
 describe('Utils', () => {
 	describe('getRandomInt(min, max)', () => {
@@ -86,6 +86,26 @@ describe('Utils', () => {
 			expect(copy.nil).toBe(object.nil);
 			expect(copy.nope).toBe(object.nope);
 			expect((copy as any).doesNotExist).toBe((object as any).doesNotExist);
+		});
+	});
+
+	describe('convertDataUrlToBlob', () => {
+		it('should convert a data url to a blob', async () => {
+			const jpg = `data:image/jpeg;base64,
+			/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDADIiJSwlHzIsKSw4NTI7S31RS0VFS5ltc1p9tZ++u7Kf
+			r6zI4f/zyNT/16yv+v/9////////wfD/////////////2wBDATU4OEtCS5NRUZP/zq/O////////
+			////////////////////////////////////////////////////////////wAARCAAYAEADAREA
+			AhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAQMAAgQF/8QAJRABAAIBBAEEAgMAAAAAAAAAAQIR
+			AAMSITEEEyJBgTORUWFx/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAA
+			AAD/2gAMAwEAAhEDEQA/AOgM52xQDrjvAV5Xv0vfKUALlTQfeBm0HThMNHXkL0Lw/swN5qgA8yT4
+			MCS1OEOJV8mBz9Z05yfW8iSx7p4j+jA1aD6Wj7ZMzstsfvAas4UyRHvjrAkC9KhpLMClQntlqFc2
+			X1gUj4viwVObKrddH9YDoHvuujAEuNV+bLwFS8XxdSr+Cq3Vf+4F5RgQl6ZR2p1eAzU/HX80YBYy
+			JLCuexwJCO2O1bwCRidAfWBSctswbI12GAJT3yiwFR7+MBjGK2g/WAJR3FdF84E2rK5VR0YH/9k=`;
+
+			const jpgBlob = await convertDataUrlToBlob(jpg);
+
+			expect(jpgBlob.size).toBe(512);
+			expect(jpgBlob.type).toBe('image/jpeg');
 		});
 	});
 });

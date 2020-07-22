@@ -246,3 +246,8 @@ export const uuid = () =>
 		const v = c === 'x' ? r : (r & 0x3) | 0x8;
 		return v.toString(16);
 	});
+
+/**
+ * Convert a data url to a blob.
+ */
+export const convertDataUrlToBlob = async (dataUrl: string) => fetch(dataUrl).then((res) => res.blob());
