@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/jitbug/helpers/compare/v2.3.0...v2.4.0) (2020-07-27)
+
+
+### Features
+
+* **ionic:** showProgress calls don't cancel each other ([b64c0f8](https://github.com/jitbug/helpers/commit/b64c0f8f8757c69f072383bd5f1a6b2fc6fd905b))
+
 ## [2.3.0](https://github.com/jitbug/helpers/compare/v2.2.0...v2.3.0) (2020-07-22)
 
 
