@@ -115,10 +115,21 @@ export const showPopover = async (options: PopoverOptions) => {
  * Show a progress bar at the top of the page (nprogress).
  */
 export const showProgress = () => {
+	nprogressCounts.start++;
+
 	nprogress.start();
 
-	return nprogress;
+	return {
+		done: () => {
+			// the `done` count gets incremented before the comparison
+			if (nprogressCounts.start === ++nprogressCounts.done) {
+				nprogress.done();
+			}
+		},
+	};
 };
+
+const nprogressCounts = { start: 0, done: 0 };
 
 /**
  * Show a progress bar while awaiting a promise.
