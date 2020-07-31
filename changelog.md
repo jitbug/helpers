@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/jitbug/helpers/compare/v2.4.0...v2.4.1) (2020-07-31)
+
+
+### Bug Fixes
+
+* **utils:** useRef doesn't set null refs by default ([6d79bc5](https://github.com/jitbug/helpers/commit/6d79bc50425269e4df6e5436bc19cb923079bbf2))
+
 ## [2.4.0](https://github.com/jitbug/helpers/compare/v2.3.0...v2.4.0) (2020-07-27)
 
 
