@@ -1,4 +1,4 @@
-import { base64ImageToDataUrl, clone, convertDataUrlToBlob, getByPath, getRandomInt } from '.';
+import { base64ImageToDataUrl, clone, convertDataUrlToBlob, getByPath, getRandomInt, useRef } from '.';
 
 describe('Utils', () => {
 	describe('getRandomInt(min, max)', () => {
@@ -106,6 +106,51 @@ describe('Utils', () => {
 
 			expect(jpgBlob.size).toBe(512);
 			expect(jpgBlob.type).toBe('image/jpeg');
+		});
+	});
+
+	describe('useRef', () => {
+		it('should give an updateable reference', () => {
+			const el = useRef<any>();
+
+			expect(el.ref).toBe(undefined);
+
+			el.setRef('foo');
+			expect(el.ref).toBe('foo');
+
+			const foo = {};
+
+			el.setRef(foo);
+			expect(el.ref).toBe(foo);
+		});
+
+		it('should not set null refs by default', () => {
+			const el = useRef<any>();
+
+			el.setRef('foo');
+			el.setRef(null);
+			el.setRef(undefined);
+
+			expect(el.ref).toBe('foo');
+
+			el.setRef(false);
+			expect(el.ref).toBe(false);
+
+			el.setRef(0);
+			expect(el.ref).toBe(0);
+		});
+
+		it('should set null refs if enabled', () => {
+			const el = useRef<any>({ nullRefs: true });
+
+			el.setRef('foo');
+			expect(el.ref).toBe('foo');
+
+			el.setRef(null);
+			expect(el.ref).toBe(null);
+
+			el.setRef(undefined);
+			expect(el.ref).toBe(undefined);
 		});
 	});
 });

@@ -16,17 +16,26 @@ import { removeDataUrlPrefix } from '../strings';
  *   }
  * }
  */
-export const useRef = <T extends HTMLElement = HTMLElement>() => {
+export const useRef = <T extends HTMLElement = HTMLElement>({ nullRefs }: UseRefOptions = {}) => {
 	const ref: {
 		ref: T | undefined;
 		setRef(el?: T): void;
 	} = {
 		ref: undefined,
-		setRef: (el) => (ref.ref = el),
+		setRef: (el) => (ref.ref = nullRefs ? el : el ?? ref.ref),
 	};
 
 	return ref;
 };
+
+export interface UseRefOptions {
+	/**
+	 * If true, `null` refs will also be set. A ref is set to `null` if the element is removed during render. Enable this if you dynamically/conditionally add and remove the referenced element.
+	 *
+	 * When moving an element around, it will be removed from its old location as well as added to its new location, each calling the `ref` prop callback. Depending on the order of execution of those two ref calls (depending on which one is encountered first in the DOM), the `null` ref might be called last, therefore giving an undesired ref. For that reason this option is disabled by default.
+	 */
+	nullRefs?: boolean;
+}
 
 /**
  * Wait for a given amount of time.
