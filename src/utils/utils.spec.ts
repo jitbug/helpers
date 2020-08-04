@@ -1,4 +1,14 @@
-import { base64ImageToDataUrl, clone, convertDataUrlToBlob, getByPath, getRandomInt, useRef } from '.';
+import {
+	base64ImageToDataUrl,
+	clone,
+	convertDataUrlToBlob,
+	debounce,
+	getByPath,
+	getRandomInt,
+	throttle,
+	useRef,
+	wait,
+} from '.';
 
 describe('Utils', () => {
 	describe('getRandomInt(min, max)', () => {
@@ -89,7 +99,7 @@ describe('Utils', () => {
 		});
 	});
 
-	describe('convertDataUrlToBlob', () => {
+	describe('convertDataUrlToBlob(dataUrl)', () => {
 		it('should convert a data url to a blob', async () => {
 			const jpg = `data:image/jpeg;base64,
 			/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDADIiJSwlHzIsKSw4NTI7S31RS0VFS5ltc1p9tZ++u7Kf
@@ -104,12 +114,13 @@ describe('Utils', () => {
 
 			const jpgBlob = await convertDataUrlToBlob(jpg);
 
+			expect(jpgBlob.constructor.name).toBe('Blob');
 			expect(jpgBlob.size).toBe(512);
 			expect(jpgBlob.type).toBe('image/jpeg');
 		});
 	});
 
-	describe('useRef', () => {
+	describe('useRef()', () => {
 		it('should give an updateable reference', () => {
 			const el = useRef<any>();
 
@@ -151,6 +162,61 @@ describe('Utils', () => {
 
 			el.setRef(undefined);
 			expect(el.ref).toBe(undefined);
+		});
+	});
+
+	describe('debounce', () => {
+		it('should debounce a function', async () => {
+			let count = 0;
+
+			const fn = debounce(() => count++, 100);
+
+			fn();
+			expect(count).toBe(0);
+
+			fn();
+			expect(count).toBe(0);
+
+			await wait(150);
+			expect(count).toBe(1);
+		});
+	});
+
+	describe('throttle', () => {
+		it('should throttle a function', async () => {
+			let count = 0;
+
+			const fn = throttle(() => count++, 100);
+
+			fn();
+			expect(count).toBe(1);
+
+			fn();
+			expect(count).toBe(1);
+
+			await wait(150);
+			fn();
+			expect(count).toBe(2);
+		});
+
+		it('should use the skip function during throttle', async () => {
+			let count = 0;
+
+			const fn = throttle(
+				() => count++,
+				100,
+				() => (count += 2),
+			);
+
+			fn();
+			expect(count).toBe(1);
+
+			fn();
+			expect(count).toBe(3);
+
+			await wait(150);
+			fn();
+			expect(count).toBe(4);
 		});
 	});
 });
