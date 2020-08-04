@@ -219,4 +219,16 @@ describe('Utils', () => {
 			expect(count).toBe(4);
 		});
 	});
+
+	describe('wait', () => {
+		it('should wait for the specified amount of time', async () => {
+			const t0 = Date.now();
+
+			await wait(100);
+
+			const t1 = Date.now();
+
+			expect(t1 - t0).toBeGreaterThanOrEqual(100);
+		});
+	});
 });
