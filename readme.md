@@ -81,6 +81,7 @@ setMomentReference(moment);
 * `showConfirmationAlert(question, options)`: Show a confirmation alert.
 * `viewportIsMin(size)`: Check whether the viewport is at least of specified size.
 * `goToRoute(url)`: Go to a route programmatically.
+* `goToPreviousRoute()`: Go back to the previous route in the history.
 * `changeRouteHash(hash)`: Change the hash of the current route without adding a new state to the browser history.
 
 ### Strings (`@jitbug/helpers/strings`)

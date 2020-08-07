@@ -195,6 +195,21 @@ const breakpoints = {
  * Go to a route programmatically.
  */
 export const goToRoute: typeof HTMLIonRouterElement.prototype.push = async (...args) => {
+	const router = await waitForRouter();
+
+	return router.push(...args);
+};
+
+/**
+ * Go back to the previous route in `window.history`.
+ */
+export const goToPreviousRoute = async () => {
+	const router = await waitForRouter();
+
+	return router.back();
+};
+
+const waitForRouter = async () => {
 	let router: HTMLIonRouterElement | null = null;
 
 	while (!router) {
@@ -202,7 +217,7 @@ export const goToRoute: typeof HTMLIonRouterElement.prototype.push = async (...a
 		await wait(10);
 	}
 
-	return router.push(...args);
+	return router;
 };
 
 /**
