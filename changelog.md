@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/jitbug/helpers/compare/v2.5.0...v2.5.1) (2020-08-07)
+
+
+### Bug Fixes
+
+* inferred types of `throttle` with and without `skipFn` ([7e75442](https://github.com/jitbug/helpers/commit/7e754426f14703e02a20e35043478e0afff88fd0))
+
 ## [2.5.0](https://github.com/jitbug/helpers/compare/v2.4.1...v2.5.0) (2020-08-07)
 
 
