@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/jitbug/helpers/compare/v2.4.1...v2.5.0) (2020-08-07)
+
+
+### Features
+
+* add goToPreviousRoute ([d814f19](https://github.com/jitbug/helpers/commit/d814f194d42873cb977fafbcd7c6100eb91b1397))
+
+
+### Bug Fixes
+
+* **utils:** return types of debounce and throttle ([023f484](https://github.com/jitbug/helpers/commit/023f484edc935930cf0390c349640cad38865624))
+
 ### [2.4.1](https://github.com/jitbug/helpers/compare/v2.4.0...v2.4.1) (2020-07-31)
 
 
