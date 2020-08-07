@@ -68,26 +68,32 @@ export const debounce = <T extends (...args: any[]) => any>(fn: T, delay: number
  * @param delay time in ms
  * @param skipFn optional function to execute when fn is skipped due to throttle
  */
-export const throttle = <T extends (...args: any[]) => any, S extends (...args: any[]) => void>(
+export function throttle<T extends (...args: any[]) => any>(
+	fn: T,
+	delay: number,
+): (...args: Parameters<T>) => ReturnType<T> | void;
+export function throttle<T extends (...args: any[]) => any, S extends (...args: Parameters<T>) => any>(
+	fn: T,
+	delay: number,
+	skipFn: S,
+): (...args: Parameters<T>) => ReturnType<T | S>;
+export function throttle<T extends (...args: any[]) => any, S extends (...args: Parameters<T>) => any>(
 	fn: T,
 	delay: number,
 	skipFn?: S,
-) => {
+): (...args: Parameters<T>) => ReturnType<T | S> | void {
 	let lastCallTime: number | undefined;
 
-	return (...args: Parameters<T>): void | ReturnType<T> => {
+	return (...args: Parameters<T>) => {
 		if (lastCallTime && lastCallTime + delay > Date.now()) {
-			if (skipFn) {
-				skipFn();
-			}
-			return;
+			return skipFn && skipFn(...args);
 		}
 
 		lastCallTime = Date.now();
 
 		return fn(...args);
 	};
-};
+}
 
 /**
  * Get a random integer in the given range.

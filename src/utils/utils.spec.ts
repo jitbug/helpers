@@ -218,6 +218,81 @@ describe('Utils', () => {
 			fn();
 			expect(count).toBe(4);
 		});
+
+		it('should pass on given params', async () => {
+			let num = 0;
+
+			const fn = throttle(
+				(a: number, b: number) => {
+					num = a + b;
+				},
+				100,
+				(a, b) => {
+					num = a - b;
+				},
+			);
+
+			fn(1, 2);
+			expect(num).toBe(3);
+
+			fn(3, 4);
+			expect(num).toBe(-1);
+
+			await wait(150);
+
+			fn(5, 6);
+			expect(num).toBe(11);
+		});
+
+		it('should return the correct value', async () => {
+			const fn = throttle(
+				(n: number) => n ** 2,
+				100,
+				(n) => n,
+			);
+
+			const foo = fn(4);
+			const bar = fn(3);
+
+			await wait(150);
+			const baz = fn(2);
+
+			expect(foo).toBe(16);
+			expect(bar).toBe(3);
+			expect(baz).toBe(4);
+		});
+
+		it('should return the correct type', async () => {
+			const fn = throttle((x: number) => x, 100);
+
+			const foo = fn(1);
+			const bar = fn(2);
+
+			// @ts-expect-error
+			expect(2 * foo).toBe(2);
+
+			expect(bar).toBeUndefined();
+		});
+
+		it('should return the correct type with skip function', async () => {
+			const fn = throttle(
+				(x: number) => x,
+				100,
+				(x) => String(x),
+			);
+
+			const foo = fn(1);
+			const bar = fn(2);
+
+			expect(foo).toBe(1);
+			expect(bar).toBe('2');
+
+			// @ts-expect-error
+			expect(foo.length).toBeUndefined();
+
+			// @ts-expect-error
+			expect(bar.length).toBe(1);
+		});
 	});
 
 	describe('wait', () => {
