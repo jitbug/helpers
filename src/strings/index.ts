@@ -53,7 +53,7 @@ export const toOrdinal = (n: number) => {
 };
 
 /**
- * Filter falsy elements from an array, then join them.
+ * Filter falsy elements from an array, then join them. Default separator: `', '`.
  */
 export const filterAndJoin = (parts: (string | false | null | undefined)[], separator = ', ') =>
 	parts.filter(Boolean).join(separator);
