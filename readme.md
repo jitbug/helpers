@@ -47,6 +47,8 @@ setMomentReference(moment);
 * `validateShiftDuration(start, end, min)`: Validate a shift's duration.
 * `getDatesOfNextWeeks(start, n)`: Get the dates of the next `n` weeks from the start date. Only includes work days (Mo - Fr). Don't try to use this with a start date that's not a Monday or you will break the internetz.
 * `getCalendarMonthBoundaries(month)`: Get the start and end dates of a calendar month, which is the start date of the week that includes the first day of the month, and the end date of the week that includes the last day of the month.
+* `isInFuture(date)`: Check whether the given moment is in the future.
+* `isInPast(date)`: Check whether the given moment is in the past.
 
 ### Functional Programming (`@jitbug/helpers/fp`)
 

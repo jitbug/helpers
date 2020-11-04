@@ -141,3 +141,13 @@ export const getCalendarMonthBoundaries = (month: Moment, weekStartsOnSunday = f
 
 	return { start, end };
 };
+
+/**
+ * Check whether the given moment is in the future.
+ */
+export const isInFuture = (date: Moment | string) => moment(date).isAfter(moment());
+
+/**
+ * Check whether the given moment is in the past.
+ */
+export const isInPast = (date: Moment | string) => moment(date).isBefore(moment());

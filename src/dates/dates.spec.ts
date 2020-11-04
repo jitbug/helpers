@@ -4,6 +4,8 @@ import {
 	formatAsTimestamp,
 	getCalendarMonthBoundaries,
 	getWorkedHours,
+	isInFuture,
+	isInPast,
 	mergeDateAndTime,
 	minsToMs,
 	msToDecimalHours,
@@ -134,6 +136,28 @@ describe('Date Helpers', () => {
 
 			expect(start).toBeSameDay(moment('2019-12-01'));
 			expect(end).toBeSameDay(moment('2020-01-04'));
+		});
+	});
+
+	describe('isInFuture(date)', () => {
+		it('should tell whether the given date is in the future', () => {
+			const yesterday = moment().subtract(1, 'day');
+			const tomorrow = moment().add(1, 'day');
+
+			expect(isInFuture(yesterday)).toBe(false);
+			expect(isInFuture(moment())).toBe(false);
+			expect(isInFuture(tomorrow)).toBe(true);
+		});
+	});
+
+	describe('isInPast(date)', () => {
+		it('should tell whether the given date is in the past', () => {
+			const yesterday = moment().subtract(1, 'day');
+			const tomorrow = moment().add(1, 'day');
+
+			expect(isInPast(yesterday)).toBe(true);
+			expect(isInPast(moment())).toBe(false);
+			expect(isInPast(tomorrow)).toBe(false);
 		});
 	});
 });
