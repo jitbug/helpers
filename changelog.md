@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/jitbug/helpers/compare/v2.5.1...v2.6.0) (2020-11-04)
+
+
+### Features
+
+* **dates:** add isInFuture and isInPast ([0e05699](https://github.com/jitbug/helpers/commit/0e056996c500fd31bdc231387f8c710c85d5c63b))
+
 ### [2.5.1](https://github.com/jitbug/helpers/compare/v2.5.0...v2.5.1) (2020-08-07)
 
 
