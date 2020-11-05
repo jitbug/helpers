@@ -12,6 +12,7 @@ import {
 	setMomentReference,
 } from '.';
 import { Time } from '../time';
+import { wait } from '../utils';
 
 setMomentReference(moment);
 
@@ -139,25 +140,40 @@ describe('Date Helpers', () => {
 		});
 	});
 
+	const yesterday = moment().subtract(1, 'day');
+	const tomorrow = moment().add(1, 'day');
+
 	describe('isInFuture(date)', () => {
 		it('should tell whether the given date is in the future', () => {
-			const yesterday = moment().subtract(1, 'day');
-			const tomorrow = moment().add(1, 'day');
-
 			expect(isInFuture(yesterday)).toBe(false);
 			expect(isInFuture(moment())).toBe(false);
 			expect(isInFuture(tomorrow)).toBe(true);
+		});
+
+		it('should respect the given granularity', async () => {
+			if (moment().seconds() >= 59) {
+				await wait(2000);
+			}
+
+			expect(isInFuture(moment().add(1, 'second'), 'second')).toBe(true);
+			expect(isInFuture(moment().add(1, 'second'), 'minute')).toBe(false);
 		});
 	});
 
 	describe('isInPast(date)', () => {
 		it('should tell whether the given date is in the past', () => {
-			const yesterday = moment().subtract(1, 'day');
-			const tomorrow = moment().add(1, 'day');
-
 			expect(isInPast(yesterday)).toBe(true);
 			expect(isInPast(moment())).toBe(false);
 			expect(isInPast(tomorrow)).toBe(false);
+		});
+
+		it('should respect the given granularity', async () => {
+			if (moment().seconds() <= 1) {
+				await wait(2000);
+			}
+
+			expect(isInPast(moment().subtract(1, 'second'), 'second')).toBe(true);
+			expect(isInPast(moment().subtract(1, 'second'), 'minute')).toBe(false);
 		});
 	});
 });

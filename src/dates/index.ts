@@ -1,4 +1,4 @@
-import { Moment } from 'moment-timezone';
+import { Moment, unitOfTime } from 'moment-timezone';
 import { createRange } from '../arrays';
 import { Time, TimeLike } from '../time';
 
@@ -145,9 +145,11 @@ export const getCalendarMonthBoundaries = (month: Moment, weekStartsOnSunday = f
 /**
  * Check whether the given moment is in the future.
  */
-export const isInFuture = (date: Moment | string) => moment(date).isAfter(moment());
+export const isInFuture = (date: Moment | string, granularity?: unitOfTime.StartOf) =>
+	moment(date).isAfter(moment(), granularity);
 
 /**
  * Check whether the given moment is in the past.
  */
-export const isInPast = (date: Moment | string) => moment(date).isBefore(moment());
+export const isInPast = (date: Moment | string, granularity?: unitOfTime.StartOf) =>
+	moment(date).isBefore(moment(), granularity);
