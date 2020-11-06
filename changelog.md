@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/jitbug/helpers/compare/v2.6.0...v2.7.0) (2020-11-06)
+
+
+### Features
+
+* **dates:** allow to set granularity for isInFuture and isInPast ([b889880](https://github.com/jitbug/helpers/commit/b889880b59744e03821634bf0b263d07c3675ed4))
+
 ## [2.6.0](https://github.com/jitbug/helpers/compare/v2.5.1...v2.6.0) (2020-11-04)
 
 
