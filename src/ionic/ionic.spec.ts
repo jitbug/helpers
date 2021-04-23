@@ -26,7 +26,7 @@ describe('Ionic Helpers', () => {
 		});
 
 		it('should not call nprogress.done() when another progress has started in the meantime', async () => {
-			const actionOne = new Promise((resolve) => {
+			const actionOne = new Promise<void>((resolve) => {
 				const progress = showProgress();
 				setTimeout(() => {
 					progress.done();
@@ -34,7 +34,7 @@ describe('Ionic Helpers', () => {
 				}, 1000);
 			});
 
-			const actionTwo = new Promise((resolve) => {
+			const actionTwo = new Promise<void>((resolve) => {
 				const progress = showProgress();
 				setTimeout(() => {
 					progress.done();

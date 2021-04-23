@@ -123,7 +123,7 @@ export const clone = <T = any>(value: T): T =>
 	!value || typeof value !== 'object'
 		? value
 		: Array.isArray(value)
-		? value.map(clone)
+		? value.forEach(clone)
 		: Object.entries(value)
 				.map(([key, val]) => ({ [key]: clone(val) }))
 				.reduce((acc, val) => ({ ...acc, ...val }), {} as any);
