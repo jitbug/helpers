@@ -111,13 +111,15 @@ export const validateShiftDuration = (start: TimeLike, end: TimeLike, minDuratio
 	!minDurationInMinutes || getDuration(start, end) >= new Time(minDurationInMinutes);
 
 /**
- * Get the dates of the next `n` weeks from the start date. Only includes work days (Mo - Fr). Don't try to use this with a start date that's not a Monday or you will break the internets.
+ * Get the dates of the next `n` weeks from the start date. Don't try to use this with a start date that's not a Monday or you will break the internets.
  */
-export const getDatesOfNextWeeks = (startOfCurrentWeek: Moment, n = 2) =>
-	createRange(n)
-		.map((weekIndex) => moment(startOfCurrentWeek).add(weekIndex, 'weeks'))
-		.map((currentWeekDate) => createRange(5).map((dayIndex) => moment(currentWeekDate).add(dayIndex, 'days')))
-		.reduce((allDates, weekDates) => [...allDates, ...weekDates], []);
+export const getDatesOfNextWeeks = (startOfCurrentWeek: Moment, { n = 2, includeWeekends = false } = {}) =>
+createRange(n)
+	.map((weekIndex) => moment(startOfCurrentWeek).add(weekIndex, 'weeks'))
+	.map((currentWeekDate) =>
+		createRange(includeWeekends ? 7 : 5).map((dayIndex) => moment(currentWeekDate).add(dayIndex, 'days')),
+	)
+	.reduce((allDates, weekDates) => [...allDates, ...weekDates], []);
 
 /**
  * Get the start and end dates of a calendar month, which is the start date of the week that includes the first day of the month, and the end date of the week that includes the last day of the month.
