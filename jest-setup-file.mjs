@@ -1,7 +1,3 @@
-const fetch = require('node-fetch');
-
-global.fetch = fetch;
-
 /**
  * This file is referenced as a testing setup file for Jest. It runs once per test file immediately before executing the test.
  *
